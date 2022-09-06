@@ -1,0 +1,56 @@
+print("#" * 70)
+print("Wellcom Sir, We are happy to serve you".center(70, '#'))
+print("#" * 70)
+
+ctyone = [ 'USA', 'Britain', 'Germany', 'France', 'Spain', 'gaza' ]
+ctytow = ['Gaza', 'Palestine', 'Saudi Arabia', 'Egypt', 'Algeria', 'Yemen']
+names = ['momen', 'ahmed', 'mohamed', 'mahmoud', 'ismael']
+
+name = input("Whats Your Name Sir :").strip()
+
+if name in names:
+    print(f"Welcome Mester {name}")
+
+    edit = input("Do You Wont Edit Name Profile or skip.. (Y,N)/(S)").strip().lower()
+
+    if edit == 'S':
+        country = input("whats your country Sir? : ").strip()
+
+        if country in ctyone:
+            print("I only calculate the ages of citizens of Arab countries.")
+
+        elif country in ctytow:
+            age = int(input("whats Your Age Sir :").strip())
+            unit = input("How do you want to calculate your age (years, months, weeks, days) : ").strip().lower()
+            years = age
+            months = age * 12
+            weeks = months * 4
+            days = age * 365
+            if unit == 'years' or unit == 'y': print(f"Sir, your age of {years}")
+            if unit == 'months' or unit == 'm': print(f"Sir, months of your life is {months}")
+            if unit == 'weeks' or unit == 'w': print(f"Sir, weeks of your life is {weeks}")
+            if unit == 'days' or unit == 'd': print(f"Sir, days of your life is {days}")
+
+        else:
+            print("I can not answer")
+
+    elif edit == 'y':
+        update = input("Do you want to update or delete your name? (U,D)").strip().lower()
+        if update == 'update' or update == 'U':
+            newname = input("Enter New Name : ")
+            names[names.index(name)] = newname
+            print(names)
+
+        elif update == 'delete' or update == 'd':
+            names.remove(name)
+            print(names)
+
+else:
+    state = input("It seems that you are not listed in the list of users\ndo you want to be listed with the same name? (Y, N)")
+    if state == 'y':
+        names.append(name)
+        print(names)
+    elif state == 'n':
+        newuser = input("Enter New User : ")
+        names.append(newuser)
+        print(names)
